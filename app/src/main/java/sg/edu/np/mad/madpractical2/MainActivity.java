@@ -14,7 +14,8 @@ import androidx.core.view.WindowInsetsCompat;
 
 public class MainActivity extends AppCompatActivity {
 
-    private static final String TAG = "MaiActivity";
+    private static final String TAG = "MainActivity";
+    private boolean followed = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,15 +40,21 @@ public class MainActivity extends AppCompatActivity {
         tvDesc.setText(user.description);
         btnFollow.setText("Follow");
 
-        /*
+
         btnFollow.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
                 Log.i(TAG, "follow button pressed");
 
-                btnFollow.setText("Unfollow");
+                // Toggle text and update followed variable
+                if (followed) {
+                    btnFollow.setText("Follow");
+                } else {
+                    btnFollow.setText("Unfollow");
+                }
+                followed = !followed;
             }
         });
-        */
+
     }
 }
